@@ -9,12 +9,12 @@
     "servings": 1
   },
   {
-    "id": "example-recipe",
-    "title": "Example Recipe (copy me)",
-    "category": "Dinner",
-    "cuisine": "American",
-    "emoji": "🍽️",
-    "time": "30 min",
-    "servings": 4
-  }
+  "id": "chicken-shawarma",
+  "title": "Chicken Shawarma",
+  "category": "Dinner",
+  "cuisine": "Middle Eastern",
+  "emoji": "🥙",
+  "time": "120 min",
+  "servings": 6
+}
 ]
