@@ -16,12 +16,19 @@
   "emoji": "🥙",
   "time": "120 min",
   "servings": 6
-},
+  },
   {
   "id": "autumn-salad",
   "title": "Autumn Salad",
   "category": "Salad",
   "cuisine": "American",
   "emoji": "🥗"
-}
+  },
+  {
+    "id": "mashed-potatoes",
+    "title": "Mashed Potatoes",
+    "category": "Sides",
+    "cuisine": "Western",
+    "emoji": "🥔",
+  }
 ]
