@@ -27,8 +27,43 @@
   {
   "id": "mashed-potatoes",
   "title": "Mashed Potatoes",
-  "category": "Side",
+  "category": "Sides",
   "cuisine": "Western",
   "emoji": "🥔"
+},
+  {
+  "id": "green-bean-casserole",
+  "title": "Green Bean Casserole",
+  "category": "Sides",
+  "cuisine": "Western",
+  "emoji": "🫛"
+},
+  {
+  "id": "creamy-tomato-pasta-sauce",
+  "title": "Creamy Tomato Pasta Sauce",
+  "category": "Misc.",
+  "cuisine": "Western",
+  "emoji": "🍝"
+},
+  {
+  "id": "turkey-injection",
+  "title": "Turkey Injection",
+  "category": "Misc.",
+  "cuisine": "Western",
+  "emoji": "💉"
+},
+  {
+  "id": "cheeseburger-omelette",
+  "title": "Cheeseburger Omelette",
+  "category": "Breakfast",
+  "cuisine": "American",
+  "emoji": "🍳"
+},
+  {
+  "id": "peanut-butter-balls",
+  "title": "Peanut Butter Balls",
+  "category": "Snack",
+  "cuisine": "American",
+  "emoji": "🥜"
 }
 ]
