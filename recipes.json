@@ -1,0 +1,20 @@
+[
+  {
+    "id": "earl-grey-tea",
+    "title": "Earl Grey Tea",
+    "category": "Drinks",
+    "cuisine": "British",
+    "emoji": "🫖",
+    "time": "5 min",
+    "servings": 1
+  },
+  {
+    "id": "example-recipe",
+    "title": "Example Recipe (copy me)",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🍽️",
+    "time": "30 min",
+    "servings": 4
+  }
+]

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8a5a2b">
+<title>Recipe Box</title>
+<!-- Markdown parser: turns each recipe's .md file into formatted HTML -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --ink: #2b2622;
+    --muted: #7a726a;
+    --accent: #8a5a2b;
+    --accent-soft: #f0e6d8;
+    --line: #eae2d6;
+    --shadow: 0 2px 10px rgba(60,45,25,0.08);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  header.topbar {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--accent);
+    color: #fff;
+    padding: 16px 18px;
+    display: flex; align-items: center; gap: 12px;
+    box-shadow: var(--shadow);
+  }
+  header.topbar h1 { font-size: 20px; margin: 0; font-weight: 700; letter-spacing: 0.2px; }
+  .back-btn {
+    display: none;
+    background: rgba(255,255,255,0.18);
+    border: none; color: #fff;
+    font-size: 15px; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px;
+    cursor: pointer;
+  }
+  .back-btn:active { background: rgba(255,255,255,0.32); }
+  main { max-width: 760px; margin: 0 auto; padding: 18px; }
+
+  /* Search box */
+  .search {
+    width: 100%; padding: 12px 16px; margin-bottom: 18px;
+    border: 1px solid var(--line); border-radius: 12px;
+    font-size: 16px; background: var(--card); color: var(--ink);
+  }
+  .search:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+
+  /* Toggle: group by category vs cuisine */
+  .toggle { display: flex; gap: 6px; margin-bottom: 18px; background: var(--accent-soft); padding: 4px; border-radius: 999px; width: fit-content; }
+  .toggle button {
+    border: none; background: transparent; color: var(--accent);
+    font-size: 14px; font-weight: 600; padding: 7px 16px; border-radius: 999px; cursor: pointer;
+  }
+  .toggle button.active { background: var(--accent); color: #fff; }
+
+  /* Grouped sections */
+  .group-heading {
+    font-size: 15px; text-transform: uppercase; letter-spacing: 0.8px;
+    color: var(--muted); margin: 22px 0 10px; font-weight: 700;
+  }
+  .group-heading:first-of-type { margin-top: 0; }
+
+  /* Recipe card grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px; cursor: pointer; box-shadow: var(--shadow);
+    transition: transform 0.08s ease;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .card:active { transform: scale(0.98); }
+  .card .emoji { font-size: 30px; }
+  .card .title { font-weight: 700; font-size: 16px; }
+  .card .cat { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Detail view */
+  #detail { display: none; }
+  .meta-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 18px; }
+  .chip {
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 13px; font-weight: 600;
+    padding: 5px 12px; border-radius: 999px;
+  }
+  .recipe-body h1 { font-size: 26px; margin: 6px 0 2px; }
+  .recipe-body h2 { font-size: 19px; margin: 24px 0 8px; color: var(--accent); border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+  .recipe-body ul, .recipe-body ol { padding-left: 22px; }
+  .recipe-body li { margin: 6px 0; }
+  .recipe-body img { max-width: 100%; border-radius: 12px; }
+
+  .empty { color: var(--muted); text-align: center; padding: 40px 0; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding: 30px 0; }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <button class="back-btn" id="backBtn" aria-label="Back to recipes">&larr; Recipes</button>
+    <h1 id="pageTitle">Recipe Box</h1>
+  </header>
+
+  <main>
+    <!-- HOME: list of recipe cards -->
+    <section id="home">
+      <input class="search" id="search" type="search" placeholder="Search recipes..." autocomplete="off">
+      <div class="toggle" id="toggle">
+        <button data-mode="category" class="active">By Category</button>
+        <button data-mode="cuisine">By Cuisine</button>
+      </div>
+      <div id="groups"></div>
+      <p class="empty" id="emptyMsg" style="display:none;">No recipes match that search.</p>
+    </section>
+
+    <!-- DETAIL: a single recipe -->
+    <section id="detail">
+      <div class="meta-chips" id="metaChips"></div>
+      <article class="recipe-body" id="recipeBody"></article>
+    </section>
+  </main>
+
+  <footer>Made with a plain-text recipe box &middot; no ads, no backstory.</footer>
+
+<script>
+  // ---- State ----
+  let RECIPES = [];              // loaded from recipes.json
+  let groupMode = 'category';    // 'category' or 'cuisine'
+
+  const els = {
+    home: document.getElementById('home'),
+    detail: document.getElementById('detail'),
+    groups: document.getElementById('groups'),
+    toggle: document.getElementById('toggle'),
+    search: document.getElementById('search'),
+    emptyMsg: document.getElementById('emptyMsg'),
+    backBtn: document.getElementById('backBtn'),
+    pageTitle: document.getElementById('pageTitle'),
+    metaChips: document.getElementById('metaChips'),
+    recipeBody: document.getElementById('recipeBody'),
+  };
+
+  // ---- Load the master list, then render whatever the URL points to ----
+  async function init() {
+    try {
+      const res = await fetch('recipes.json?v=' + Date.now());
+      RECIPES = await res.json();
+    } catch (e) {
+      els.groups.innerHTML = '<p class="empty">Could not load recipes.json. If you are opening this file directly, it needs to run on GitHub Pages (or a local server) to load recipes.</p>';
+      return;
+    }
+    renderGrid('');
+    route();
+  }
+
+  // ---- Home: cards grouped into alphabetized sections by category or cuisine ----
+  function renderGrid(filter) {
+    const q = filter.trim().toLowerCase();
+    const matches = RECIPES.filter(r =>
+      r.title.toLowerCase().includes(q) ||
+      (r.category || '').toLowerCase().includes(q) ||
+      (r.cuisine || '').toLowerCase().includes(q)
+    );
+
+    // Bucket recipes by the active grouping field
+    const buckets = {};
+    matches.forEach(r => {
+      const key = (r[groupMode] || 'Other').trim() || 'Other';
+      (buckets[key] = buckets[key] || []).push(r);
+    });
+
+    // Group headings sorted A→Z; recipes inside each sorted by title A→Z
+    const headings = Object.keys(buckets).sort((a, b) => a.localeCompare(b));
+    els.groups.innerHTML = headings.map(h => {
+      const cards = buckets[h]
+        .sort((a, b) => a.title.localeCompare(b.title))
+        .map(r => `
+          <div class="card" data-id="${r.id}">
+            <div class="emoji">${r.emoji || '🍽️'}</div>
+            <div class="title">${escapeHtml(r.title)}</div>
+            <div class="cat">${escapeHtml((groupMode === 'category' ? r.cuisine : r.category) || '')}</div>
+          </div>`).join('');
+      return `<div class="group-heading">${escapeHtml(h)}</div><div class="grid">${cards}</div>`;
+    }).join('');
+
+    els.emptyMsg.style.display = matches.length ? 'none' : 'block';
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => { location.hash = '#/recipe/' + card.dataset.id; });
+    });
+  }
+
+  // ---- Detail view ----
+  async function showRecipe(id) {
+    const meta = RECIPES.find(r => r.id === id);
+    if (!meta) { location.hash = ''; return; }
+
+    els.home.style.display = 'none';
+    els.detail.style.display = 'block';
+    els.backBtn.style.display = 'inline-block';
+    els.pageTitle.textContent = meta.title;
+    window.scrollTo(0, 0);
+
+    // Chips come from the manifest (time, servings, category)
+    const chips = [];
+    if (meta.category) chips.push(meta.category);
+    if (meta.cuisine)  chips.push(meta.cuisine);
+    if (meta.time)     chips.push(meta.time);
+    if (meta.servings) chips.push(meta.servings + ' servings');
+    els.metaChips.innerHTML = chips.map(c => `<span class="chip">${escapeHtml(c)}</span>`).join('');
+
+    els.recipeBody.innerHTML = '<p class="empty">Loading...</p>';
+    try {
+      const res = await fetch('recipes/' + id + '.md?v=' + Date.now());
+      if (!res.ok) throw new Error('missing');
+      const md = await res.text();
+      els.recipeBody.innerHTML = marked.parse(md);
+    } catch (e) {
+      els.recipeBody.innerHTML = '<p class="empty">Could not load this recipe file (recipes/' + escapeHtml(id) + '.md).</p>';
+    }
+  }
+
+  function showHome() {
+    els.detail.style.display = 'none';
+    els.home.style.display = 'block';
+    els.backBtn.style.display = 'none';
+    els.pageTitle.textContent = 'Recipe Box';
+  }
+
+  // ---- Hash routing (makes the browser Back button + shareable links work) ----
+  function route() {
+    const m = location.hash.match(/^#\/recipe\/(.+)$/);
+    if (m) showRecipe(decodeURIComponent(m[1]));
+    else showHome();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => (
+      { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]
+    ));
+  }
+
+  els.search.addEventListener('input', e => renderGrid(e.target.value));
+  els.toggle.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    groupMode = btn.dataset.mode;
+    els.toggle.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+    renderGrid(els.search.value);
+  });
+  els.backBtn.addEventListener('click', () => { location.hash = ''; });
+  window.addEventListener('hashchange', route);
+  init();
+</script>
+</body>
+</html>
