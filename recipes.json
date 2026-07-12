@@ -65,5 +65,152 @@
   "category": "Snack",
   "cuisine": "American",
   "emoji": "🥜"
-}
+},
+  {
+    "id": "shirataki-noodle-stir-fry",
+    "title": "Shirataki Noodle Stir Fry",
+    "category": "Lunch",
+    "cuisine": "Asian",
+    "emoji": "🍜"
+  },
+  {
+    "id": "turkey-wraps",
+    "title": "Turkey Wraps",
+    "category": "Lunch",
+    "cuisine": "American",
+    "emoji": "🌯"
+  },
+  {
+    "id": "chicken-salad",
+    "title": "Chicken Salad",
+    "category": "Lunch",
+    "cuisine": "American",
+    "emoji": "🥗"
+  },
+  {
+    "id": "chicken-pasta-salad",
+    "title": "Chicken & Pasta Salad",
+    "category": "Lunch",
+    "cuisine": "Italian",
+    "emoji": "🍝"
+  },
+  {
+    "id": "chicken-salad-avocado",
+    "title": "Chicken Salad w/ Avocado",
+    "category": "Lunch",
+    "cuisine": "American",
+    "emoji": "🥑"
+  },
+  {
+    "id": "pork-beef-meatballs",
+    "title": "Pork & Beef Meatballs",
+    "category": "Dinner",
+    "cuisine": "Italian",
+    "emoji": "🍝"
+  },
+  {
+    "id": "roast-beef-bow-tie-pasta",
+    "title": "Roast Beef & Bow Tie Pasta w/ Broccoli & Parmesan",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🥩"
+  },
+  {
+    "id": "cabbage-rolls",
+    "title": "Cabbage Rolls",
+    "category": "Dinner",
+    "cuisine": "Eastern European",
+    "emoji": "🥬"
+  },
+  {
+    "id": "chicken-gnocchi-soup",
+    "title": "Chicken Gnocchi Soup",
+    "category": "Dinner",
+    "cuisine": "Italian",
+    "emoji": "🍲"
+  },
+  {
+    "id": "butternut-squash-dish",
+    "title": "Butternut Squash Dish",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🎃"
+  },
+  {
+    "id": "air-fryer-chicken-thighs",
+    "title": "Air Fryer Chicken Thighs",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🍗"
+  },
+  {
+    "id": "roasted-chicken",
+    "title": "Roasted Chicken",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🍗"
+  },
+  {
+    "id": "ribs-321",
+    "title": "3/2/1 Ribs",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🍖"
+  },
+  {
+    "id": "smothered-steak",
+    "title": "Smothered Steak",
+    "category": "Dinner",
+    "cuisine": "Southern",
+    "emoji": "🥩"
+  },
+  {
+    "id": "old-fashioned-beef-stew",
+    "title": "Old Fashioned Beef Stew",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🍲"
+  },
+  {
+    "id": "slow-roasted-beef-short-ribs",
+    "title": "Slow Roasted Beef Short Ribs",
+    "category": "Dinner",
+    "cuisine": "American",
+    "emoji": "🍖"
+  },
+  {
+    "id": "eggnog-pie",
+    "title": "Eggnog Pie",
+    "category": "Dessert",
+    "cuisine": "American",
+    "emoji": "🥧"
+  },
+  {
+    "id": "brown-butter-bourbon-rice-krispy-treats",
+    "title": "Brown Butter Bourbon Rice Krispy Treats",
+    "category": "Dessert",
+    "cuisine": "American",
+    "emoji": "🍬"
+  },
+  {
+    "id": "chocolate-treats",
+    "title": "Chocolate Treats",
+    "category": "Dessert",
+    "cuisine": "American",
+    "emoji": "🍫"
+  },
+  {
+    "id": "levain-chocolate-chip-cookies",
+    "title": "Levain Chocolate Chip Cookies",
+    "category": "Dessert",
+    "cuisine": "American",
+    "emoji": "🍪"
+  },
+  {
+    "id": "chocolate-mousse",
+    "title": "Chocolate Mousse",
+    "category": "Dessert",
+    "cuisine": "French",
+    "emoji": "🍫"
+  }
 ]
