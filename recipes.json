@@ -259,5 +259,14 @@
     "emoji": "🍫",
     "time": "150 min",
     "servings": 6
+  },
+  {
+    "id": "egg-bites",
+    "title": "Egg Bites",
+    "category": "Breakfast",
+    "cuisine": "American",
+    "emoji": "🥚",
+    "time": "45 min",
+    "servings": 6
   }
 ]
