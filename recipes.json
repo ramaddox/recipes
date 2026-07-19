@@ -1,216 +1,263 @@
 [
   {
-    "id": "earl-grey-tea",
-    "title": "Earl Grey Tea",
-    "category": "Drinks",
-    "cuisine": "British",
-    "emoji": "🫖",
-    "time": "5 min",
+    "id": "chicken-shawarma",
+    "title": "Chicken Shawarma",
+    "category": "Dinner",
+    "cuisine": "Middle Eastern",
+    "emoji": "🥙",
+    "time": "120 min",
+    "servings": 6
+  },
+  {
+    "id": "autumn-salad",
+    "title": "Autumn Salad",
+    "category": "Salad",
+    "cuisine": "American",
+    "emoji": "🥗",
+    "time": "50 min",
+    "servings": 8
+  },
+  {
+    "id": "mashed-potatoes",
+    "title": "Mashed Potatoes",
+    "category": "Sides",
+    "cuisine": "Western",
+    "emoji": "🥔",
+    "time": "45 min",
+    "servings": 6
+  },
+  {
+    "id": "green-bean-casserole",
+    "title": "Green Bean Casserole",
+    "category": "Sides",
+    "cuisine": "Western",
+    "emoji": "🫛",
+    "time": "40 min",
+    "servings": 6
+  },
+  {
+    "id": "creamy-tomato-pasta-sauce",
+    "title": "Creamy Tomato Pasta Sauce",
+    "category": "Misc.",
+    "cuisine": "Western",
+    "emoji": "🍝",
+    "time": "30 min",
+    "servings": 4
+  },
+  {
+    "id": "turkey-injection",
+    "title": "Turkey Injection",
+    "category": "Misc.",
+    "cuisine": "Western",
+    "emoji": "💉",
+    "time": "10 min",
     "servings": 1
   },
   {
-  "id": "chicken-shawarma",
-  "title": "Chicken Shawarma",
-  "category": "Dinner",
-  "cuisine": "Middle Eastern",
-  "emoji": "🥙",
-  "time": "120 min",
-  "servings": 6
-},
+    "id": "cheeseburger-omelette",
+    "title": "Cheeseburger Omelette",
+    "category": "Breakfast",
+    "cuisine": "American",
+    "emoji": "🍳",
+    "time": "15 min",
+    "servings": 1
+  },
   {
-  "id": "autumn-salad",
-  "title": "Autumn Salad",
-  "category": "Salad",
-  "cuisine": "American",
-  "emoji": "🥗"
-},
-  {
-  "id": "mashed-potatoes",
-  "title": "Mashed Potatoes",
-  "category": "Sides",
-  "cuisine": "Western",
-  "emoji": "🥔"
-},
-  {
-  "id": "green-bean-casserole",
-  "title": "Green Bean Casserole",
-  "category": "Sides",
-  "cuisine": "Western",
-  "emoji": "🫛"
-},
-  {
-  "id": "creamy-tomato-pasta-sauce",
-  "title": "Creamy Tomato Pasta Sauce",
-  "category": "Misc.",
-  "cuisine": "Western",
-  "emoji": "🍝"
-},
-  {
-  "id": "turkey-injection",
-  "title": "Turkey Injection",
-  "category": "Misc.",
-  "cuisine": "Western",
-  "emoji": "💉"
-},
-  {
-  "id": "cheeseburger-omelette",
-  "title": "Cheeseburger Omelette",
-  "category": "Breakfast",
-  "cuisine": "American",
-  "emoji": "🍳"
-},
-  {
-  "id": "peanut-butter-balls",
-  "title": "Peanut Butter Balls",
-  "category": "Snack",
-  "cuisine": "American",
-  "emoji": "🥜"
-},
+    "id": "peanut-butter-balls",
+    "title": "Peanut Butter Balls",
+    "category": "Snack",
+    "cuisine": "American",
+    "emoji": "🥜",
+    "time": "35 min",
+    "servings": 8
+  },
   {
     "id": "shirataki-noodle-stir-fry",
     "title": "Shirataki Noodle Stir Fry",
     "category": "Lunch",
     "cuisine": "Asian",
-    "emoji": "🍜"
+    "emoji": "🍜",
+    "time": "20 min",
+    "servings": 3
   },
   {
     "id": "turkey-wraps",
     "title": "Turkey Wraps",
     "category": "Lunch",
     "cuisine": "American",
-    "emoji": "🌯"
+    "emoji": "🌯",
+    "time": "5 min",
+    "servings": 1
   },
   {
     "id": "chicken-salad",
     "title": "Chicken Salad",
     "category": "Lunch",
     "cuisine": "American",
-    "emoji": "🥗"
+    "emoji": "🥗",
+    "time": "15 min",
+    "servings": 4
   },
   {
     "id": "chicken-pasta-salad",
     "title": "Chicken & Pasta Salad",
     "category": "Lunch",
     "cuisine": "Italian",
-    "emoji": "🍝"
+    "emoji": "🍝",
+    "time": "90 min",
+    "servings": 6
   },
   {
     "id": "chicken-salad-avocado",
-    "title": "Chicken Salad w/ Avocado",
+    "title": "Chicken Salad with Avocado",
     "category": "Lunch",
     "cuisine": "American",
-    "emoji": "🥑"
+    "emoji": "🥑",
+    "time": "10 min",
+    "servings": 2
   },
   {
     "id": "pork-beef-meatballs",
     "title": "Pork & Beef Meatballs",
     "category": "Dinner",
     "cuisine": "Italian",
-    "emoji": "🍝"
+    "emoji": "🍝",
+    "time": "35 min",
+    "servings": 8
   },
   {
     "id": "roast-beef-bow-tie-pasta",
-    "title": "Roast Beef & Bow Tie Pasta w/ Broccoli & Parmesan",
+    "title": "Roast Beef & Bow Tie Pasta with Broccoli & Parmesan",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🥩"
+    "emoji": "🥩",
+    "time": "480 min",
+    "servings": 6
   },
   {
     "id": "cabbage-rolls",
     "title": "Cabbage Rolls",
     "category": "Dinner",
     "cuisine": "Eastern European",
-    "emoji": "🥬"
+    "emoji": "🥬",
+    "time": "90 min",
+    "servings": 6
   },
   {
     "id": "chicken-gnocchi-soup",
     "title": "Chicken Gnocchi Soup",
     "category": "Dinner",
     "cuisine": "Italian",
-    "emoji": "🍲"
+    "emoji": "🍲",
+    "time": "480 min",
+    "servings": 8
   },
   {
     "id": "butternut-squash-dish",
     "title": "Butternut Squash Dish",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🎃"
+    "emoji": "🎃",
+    "time": "55 min",
+    "servings": 6
   },
   {
     "id": "air-fryer-chicken-thighs",
     "title": "Air Fryer Chicken Thighs",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🍗"
+    "emoji": "🍗",
+    "time": "25 min",
+    "servings": 4
   },
   {
     "id": "roasted-chicken",
     "title": "Roasted Chicken",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🍗"
+    "emoji": "🍗",
+    "time": "150 min",
+    "servings": 6
   },
   {
     "id": "ribs-321",
-    "title": "3/2/1 Ribs",
+    "title": "3-2-1 Ribs",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🍖"
+    "emoji": "🍖",
+    "time": "360 min",
+    "servings": 4
   },
   {
     "id": "smothered-steak",
     "title": "Smothered Steak",
     "category": "Dinner",
     "cuisine": "Southern",
-    "emoji": "🥩"
+    "emoji": "🥩",
+    "time": "90 min",
+    "servings": 4
   },
   {
     "id": "old-fashioned-beef-stew",
-    "title": "Old Fashioned Beef Stew",
+    "title": "Old-Fashioned Beef Stew",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🍲"
+    "emoji": "🍲",
+    "time": "150 min",
+    "servings": 4
   },
   {
     "id": "slow-roasted-beef-short-ribs",
-    "title": "Slow Roasted Beef Short Ribs",
+    "title": "Slow-Roasted Beef Short Ribs",
     "category": "Dinner",
     "cuisine": "American",
-    "emoji": "🍖"
+    "emoji": "🍖",
+    "time": "195 min",
+    "servings": 4
   },
   {
     "id": "eggnog-pie",
     "title": "Eggnog Pie",
     "category": "Dessert",
     "cuisine": "American",
-    "emoji": "🥧"
+    "emoji": "🥧",
+    "time": "270 min",
+    "servings": 8
   },
   {
     "id": "brown-butter-bourbon-rice-krispy-treats",
     "title": "Brown Butter Bourbon Rice Krispy Treats",
     "category": "Dessert",
     "cuisine": "American",
-    "emoji": "🍬"
+    "emoji": "🍬",
+    "time": "45 min",
+    "servings": 16
   },
   {
     "id": "chocolate-treats",
     "title": "Chocolate Treats",
     "category": "Dessert",
     "cuisine": "American",
-    "emoji": "🍫"
+    "emoji": "🍫",
+    "time": "180 min",
+    "servings": 12
   },
   {
     "id": "levain-chocolate-chip-cookies",
     "title": "Levain Chocolate Chip Cookies",
     "category": "Dessert",
     "cuisine": "American",
-    "emoji": "🍪"
+    "emoji": "🍪",
+    "time": "50 min",
+    "servings": 8
   },
   {
     "id": "chocolate-mousse",
     "title": "Chocolate Mousse",
     "category": "Dessert",
     "cuisine": "French",
-    "emoji": "🍫"
+    "emoji": "🍫",
+    "time": "150 min",
+    "servings": 6
   }
 ]
